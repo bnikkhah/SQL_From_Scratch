@@ -1,10 +1,18 @@
+/* Question 1 */
+
 SELECT *
 FROM survey
 LIMIT 10;
 
+/* Question 2 */
+
 SELECT question, COUNT(DISTINCT user_id) AS 'responses'
 FROM survey
 GROUP BY 1;
+
+/* Question 3 was written */
+
+/* Question 4 */
 
 SELECT *
 FROM quiz;
@@ -14,6 +22,8 @@ FROM home_try_on;
 
 SELECT *
 FROM purchase;
+
+/* Question 5 */
 
 SELECT DISTINCT q.user_id,
 	CASE
@@ -30,6 +40,8 @@ LEFT JOIN home_try_on AS 'hto'
   ON q.user_id = hto.user_id
 LEFT JOIN purchase AS 'p'
   ON p.user_id = q.user_id;
+
+/* Question 6 open-ended */
 
 WITH funnels AS (SELECT DISTINCT q.user_id,
 	hto.user_id IS NOT NULL AS 'is_home_try_on',
